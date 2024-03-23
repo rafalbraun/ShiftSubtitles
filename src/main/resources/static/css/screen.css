@@ -1,0 +1,141 @@
+/* -- Main containers ------------------------------------------------------ */
+
+html {
+  background: #ffffff;
+}
+
+#main {
+  min-width: 500px;
+}
+
+
+/* -- General -------------------------------------------------------------- */
+
+h1, h2, h3, th {
+  font-family: "Arial",sans-serif;
+}
+
+img {
+  border: none;
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #804020;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+/* -- Title ---------------------------------------------------------------- */
+
+#title
+{
+  margin-bottom: 10px;
+  padding: 0.5em 1em;
+  color: #201800;
+  background: #f8f0e0 url("bg-gradient.png") repeat-x;
+  border: 1px solid #d0c8c0;
+}
+
+#title h1 {
+  margin: 0;
+}
+
+
+/* -- Ads ------------------------------------------------------------------ */
+
+#ads {
+  float: right;
+  width: 150px;
+  min-height: 10em;
+  background-color: #fefefe;
+  padding-top: 2px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 0;
+  margin-top: 0;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 0;
+  border: 1px solid #f0f0f0;
+}
+
+
+/* -- Content -------------------------------------------------------------- */
+
+#content {
+  background-color: #ffffff;
+  padding: 1em 5px;
+  margin-bottom: 0;
+  min-height: 10em;
+}
+
+table.tool, table.tool td, table.tool th {
+  border-collapse: collapse;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+table.tool td, table.tool th {
+  vertical-align: center;
+}
+
+table.tool td {
+  text-align: left;
+}
+
+table.tool th {
+  text-align: right;
+}
+
+table.tool th.toolTitle {
+  text-align: center;
+  background: #654;
+  color: #fff;
+  height: 1.5em;
+}
+
+td#shiftTool, td#scaleTool {
+  vertical-align: top;
+  border: 1px solid #888;
+  background: #f8f0e0;
+  padding: 10px;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+}
+
+td#spacer {
+  width: 20px;
+}
+
+#content ol li {
+  margin-bottom: 0.5em;
+}
+
+#content ul li {
+  margin-bottom: 0;
+}
+
+
+/* -- Footer --------------------------------------------------------------- */
+
+#footer
+{
+  clear: both;
+  margin-top: 0;
+  padding: 0.5em;
+  color: #606060;
+  background: #f8f0e0 url("bg-gradient2.png") repeat-x left bottom;
+  border: 1px solid #d0c8c0;
+  text-align: center;
+  font-family: "Trebuchet MS","Luxi Sans",sans-serif;
+  font-size: 80%;
+}
+

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>SubShifter - Help</title>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+    <meta name="keywords" content="SRT,subtitles,time shift,timeshift,offset,resync" />
+
+    <!-- CSS -->
+    <link th:href="@{/css/screen.css}" rel="stylesheet">
+
+    <link rel="shortcut icon" href="favicon.ico" />
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-470875-4']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+<body>
+<div id="main">
+    <div id="title">
+        <h1>SubShifter - Help</h1>
+    </div>
+    <div id="content">
+
+        <h2>Instructions</h2>
+
+        <p>Use SubShifter to correct the times in your subtitle files. There are two
+            tools that you can use: the <em>Shift tool</em> and the <em>Linear
+                compensation tool</em>. The first is simpler, while the latter is more
+            powerful.</p>
+
+        <h3>Shift tool</h3>
+        <ol>
+            <li>Select the original subtitle file with the <strong>&quot;Browse...&quot;</strong> button.</li>
+            <li>Enter the desired time shift in the <strong>&quot;Time shift&quot;</strong> field.
+                <ul>
+                    <li>If the subtitles are late, use a negative time shift.</li>
+                    <li>If the subtitles are ahead of the movie, use a positive time shift.</li>
+                    <li>For instance, if the subtitles are 4.5 seconds late, enter
+                        &quot;-4.5&quot;.</li>
+                </ul>
+            </li>
+            <li>Press the <strong>&quot;Resync!&quot;</strong> button, and wait for a couple of seconds.
+                <ul>
+                    <li>The time shifted version of the subtitle file will be downloaded to your computer.
+                        Just select where you want to save it.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>Linear compensation tool</h3>
+        <ol>
+            <li>Select the original subtitle file with the <strong>&quot;Browse...&quot;</strong> button.</li>
+            <li>Enter two pairs of time stamps in the <strong>&quot;Time #1&quot;</strong> and
+                <strong>&quot;Time #2&quot;</strong> fields.
+                <ul>
+                    <li>The first column (&quot;Old time&quot;) is the un-corrected time when
+                        a subtitle appears.</li>
+                    <li>The second column (&quot;Correct time&quot;) is the correct time when
+                        the subtitle <em>should</em> appear.</li>
+                    <li>For the first time (<strong>&quot;Time #1&quot;</strong>), use a
+                        subtitle that appears <em>early</em> in the video.</li>
+                    <li>For the second time (<strong>&quot;Time #2&quot;</strong>), use a
+                        subtitle that appears <em>late</em> in the video.</li>
+                </ul>
+            </li>
+            <li>Press the <strong>&quot;Resync!&quot;</strong> button, and wait for a couple of seconds.
+                <ul>
+                    <li>The time shifted version of the subtitle file will be downloaded to your computer.
+                        Just select where you want to save it.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <p><a href="./">Back to SubShifter!</a></p>
+
+
+        <h2>Useful Links</h2>
+
+        <ul>
+            <li><a href="http://www.urusoft.net/" onclick="window.open(this.href); return false;">URUWorks</a> - Home of Subtitle Workshop, a free subtitle
+                editing tool for Windows.</li>
+            <li><a href="http://gnome-subtitles.sourceforge.net/" onclick="window.open(this.href); return false;">GNOME subtitles</a> - Powerful and free
+                subtitle editing tool for Linux/GNOME (e.g. Ubuntu).</li>
+            <li><a href="http://sears.sourceforge.net/" onclick="window.open(this.href); return false;">Sears</a> - A free subtitle editing and
+                resync tool for Windows, Mac OS X and Linux.<br /><br /></li>
+
+            <li><a href="http://subtitle.ss-birthdayreminder.com/" onclick="window.open(this.href); return false;">Subtitle time shifting tool</a> -
+                Another online SRT/SUB time shifter tool.</li>
+            <li><a href="http://www.wisgary.com/programs/srtshifter.aspx" onclick="window.open(this.href); return false;">.srt Subtitle Shifter</a> -
+                ...yet another online SRT time shifter tool.<br /><br /></li>
+
+            <li><a href="http://www.swesub.nu/" onclick="window.open(this.href); return false;">SweSUB.nu</a> - Quality site for Swedish subtitles.</li>
+        </ul>
+
+
+    </div>
+    <div id="footer"><p>SubShifter v0.3<br /><a href="http://www.bitsnbites.eu/">www.bitsnbites.eu</a></p></div>
+</div>
+</body>
+</html>

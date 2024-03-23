@@ -1,10 +1,125 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>SubShifter - Online SRT Subtitle Resync Tool</title>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+    <meta name="keywords" content="SRT,subtitles,time shift,timeshift,offset,resync" />
+
+    <!-- CSS -->
+    <link th:href="@{/css/screen.css}" rel="stylesheet">
+
+    <link rel="shortcut icon" href="favicon.ico" />
+    <script type="text/javascript">
+  /* <![CDATA[ */
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-470875-4']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  /* ]]> */
+  </script>
+    <script type="text/javascript">
+  /* <![CDATA[ */
+    function validateShiftForm()
+    {
+      var e = document.getElementById("shiftfile");
+      if (e.value.length < 3)
+      {
+        alert("No original file has been given.");
+        return false;
+      }
+      return true;
+    }
+
+    function strToTime(s)
+    {
+      return 0;
+    }
+
+    function validateScaleForm()
+    {
+      var e = document.getElementById("scalefile");
+      if (e.value.length < 3)
+      {
+        alert("No original file has been given.");
+        return false;
+      }
+      return true;
+    }
+
+    function transferTime1()
+    {
+      var e1 = document.getElementById("timeold1");
+      var e2 = document.getElementById("timenew1");
+      e2.value = e1.value;
+    }
+
+    function transferTime2()
+    {
+      var e1 = document.getElementById("timeold2");
+      var e2 = document.getElementById("timenew2");
+      e2.value = e1.value;
+    }
+  /* ]]> */
+  </script>
 </head>
 <body>
-<p>Hello World from Thymeleaf!</p>
+<div id="main">
+    <div id="title">
+        <h1>SubShifter - Online SRT Subtitle Resync Tool</h1>
+    </div>
+    <div id="content">
+
+        <h2>Resync Tools</h2>
+
+        <table class="masterTable"><tr>
+            <td id="shiftTool">
+                <form method="post" enctype="multipart/form-data" action="resync.php" onsubmit="return validateShiftForm()">
+                    <table class="tool">
+                        <tr><th colspan="3" class="toolTitle">Shift</th></tr>
+                        <tr><td><img th:src="@{/images/1.png}" alt="1" width="32" height="32" /></td><th>Subtitle file:</th><td><input type="hidden" name="MAX_FILE_SIZE" value="900000" /><input type="file" id="shiftfile" name="file" size="24" title="Original subtitle file (SRT format)" /></td></tr>
+                        <tr><td><img th:src="@{/images/2.png}" alt="2" width="32" height="32" /></td><th>Time shift:</th><td><input type="text" name="timeshift" size="10" value="+0.0" title="Positive or negative time (in seconds)" /></td></tr>
+                        <tr><td><img th:src="@{/images/3.png}" alt="3" width="32" height="32" /></td><td style="text-align: center" colspan="2"><input type="submit" value="Resync!" title="Generate new subtitle file" /></td><td></td></tr>
+                    </table>
+                </form>
+            </td>
+            <td id="spacer">&nbsp;</td>
+            <td id="scaleTool">
+                <form method="post" enctype="multipart/form-data" action="resync.php" onsubmit="return validateScaleForm()">
+                    <table class="tool">
+                        <tr><th colspan="3" class="toolTitle">Linear correction (not yet implemented)</th></tr>
+                        <tr><td><img th:src="@{/images/1.png}" alt="1" width="32" height="32" /></td><th>Subtitle file:</th><td><input type="hidden" name="MAX_FILE_SIZE" value="900000" /><input type="file" id="scalefile" name="file" size="24" title="Original subtitle file (SRT format)" /></td></tr>
+                        <tr><td rowspan="2"><img th:src="@{/images/2.png}" alt="2" width="32" height="32" /></td><th>Time #1:</th><td><input type="text" id="timeold1" name="timeold1" size="13" value="0:00:00.000" title="Old time #1 [h:mm:ss.xxx]" />&nbsp;<span onclick="transferTime1()" title="Copy time to the right">&#10137;</span>&nbsp;<input type="text" id="timenew1" name="timenew1" size="13" value="0:00:00.000" title="Correct time #1 [h:mm:ss.xxx]" /></td></tr>
+                        <tr><th>Time #2:</th><td><input type="text" id="timeold2" name="timeold2" size="13" value="0:00:00.000" title="Old time #2 [h:mm:ss.xxx]" />&nbsp;<span onclick="transferTime2()" title="Copy time to the right">&#10137;</span>&nbsp;<input type="text" id="timenew2" name="timenew2" size="13" value="0:00:00.000" title="Correct time #2 [h:mm:ss.xxx]" /></td></tr>
+                        <tr><td><img th:src="@{/images/3.png}" alt="3" width="32" height="32" /></td><td style="text-align: center" colspan="2"><input type="submit" value="Resync!" title="Generate new subtitle file" /></td></tr>
+                    </table>
+                </form>
+            </td>
+        </tr></table>
+
+
+
+        <h2>Information</h2>
+
+        <p>These tools shift all the time stamps of a movie subtitle file. They can be
+            used for synchronizing the subtitles to a movie when there is a slight offset
+            between the two (this can be the case when the subtitles and the movie come
+            from two different sources), or when there is a time scale difference (for
+            instance if the movie and the subtitle file have different frame rates).</p>
+
+        <p>SubShifter currently supports the <a href="http://en.wikipedia.org/wiki/SubRip"
+                                                onclick="window.open(this.href); return false;">SRT file format</a>, which is
+            supported by most modern media players.</p>
+
+        <p><br /><br /><a href="/help"><img th:src="@{/images/help.png}" alt="Help" width="32" height="32" /> Help and Instructions</a></p>
+
+
+    </div>
+    <div id="footer"><p>SubShifter v0.3<br /><a href="http://www.bitsnbites.eu/">www.bitsnbites.eu</a></p></div>
+</div>
 </body>
 </html>
