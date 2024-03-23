@@ -78,7 +78,7 @@
 
         <table class="masterTable"><tr>
             <td id="shiftTool">
-                <form method="post" enctype="multipart/form-data" action="resync.php" onsubmit="return validateShiftForm()">
+                <form method="post" enctype="multipart/form-data" action="/resync" onsubmit="return validateShiftForm()">
                     <table class="tool">
                         <tr><th colspan="3" class="toolTitle">Shift</th></tr>
                         <tr><td><img th:src="@{/images/1.png}" alt="1" width="32" height="32" /></td><th>Subtitle file:</th><td><input type="hidden" name="MAX_FILE_SIZE" value="900000" /><input type="file" id="shiftfile" name="file" size="24" title="Original subtitle file (SRT format)" /></td></tr>
