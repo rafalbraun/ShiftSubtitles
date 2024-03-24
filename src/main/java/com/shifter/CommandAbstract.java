@@ -1,5 +1,6 @@
 package com.shifter;
 
-public abstract class CommandAbstract {
-    public abstract void execute();
+@FunctionalInterface
+public interface CommandAbstract {
+    void execute();
 }

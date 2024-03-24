@@ -3,7 +3,7 @@ package com.shifter;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class PrintSubtitlesCommand extends CommandAbstract {
+public class PrintSubtitlesCommand implements CommandAbstract {
 
     private final List<Subtitle> shiftedList;
     private String formattedSubtitles;

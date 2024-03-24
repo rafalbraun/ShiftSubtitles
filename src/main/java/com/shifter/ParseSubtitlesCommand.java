@@ -9,7 +9,7 @@ import java.util.List;
 import static com.shifter.Constants.DOUBLE_NEWLINE;
 import static com.shifter.Constants.NEWLINE;
 
-public class ParseSubtitlesCommand extends CommandAbstract {
+public class ParseSubtitlesCommand implements CommandAbstract {
 
     private final InputStream inputStream;
     private final List<Subtitle> subtitleList = new LinkedList<>();
