@@ -19,7 +19,7 @@ import java.nio.file.Paths;
  */
 public class MainTest {
 
-    private static final String INPUT_FILE = "src/test/resources/Euphoria.US.S01E00.Fuck.Anyone.Whos.Not.a.Sea.Blob.WEBRip-ION10-KiNGS.srt";
+    private static final String INPUT_FILE = "src/test/resources/input.srt";
     private static final String SHIFTED_FILE = "src/test/resources/shifted.srt";
     private static final String TIMESHIFT = "-66.0";
 

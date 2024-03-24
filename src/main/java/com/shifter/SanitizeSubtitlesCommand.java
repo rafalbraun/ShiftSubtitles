@@ -1,13 +1,13 @@
 package com.shifter;
 
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 import java.util.List;
 
+import static com.shifter.Constants.*;
+
 public class SanitizeSubtitlesCommand implements CommandAbstract {
 
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss,SSS");
     private final List<Subtitle> subtitleList;
     private final List<Subtitle> sanitizedList;
 

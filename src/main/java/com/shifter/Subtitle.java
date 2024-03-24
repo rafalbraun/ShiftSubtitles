@@ -2,14 +2,11 @@ package com.shifter;
 
 import java.time.Duration;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 import static com.shifter.Constants.*;
 
 public class Subtitle implements Comparable<Subtitle> {
-
-    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss,SSS");
 
     public final String number;
     public final String timestamp;
@@ -22,8 +19,6 @@ public class Subtitle implements Comparable<Subtitle> {
     }
 
     public Subtitle shift(int millisecondsDelay) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss,SSS");
-
         String[] times = timestamp.split(" --> ");
         String startTimeString = times[0];
         String endTimeString = times[1];
@@ -33,7 +28,6 @@ public class Subtitle implements Comparable<Subtitle> {
 
         String formattedStartTime = startTime.plus(millisecondsDelay, ChronoUnit.MILLIS).format(formatter);
         String formattedEndTime = endTime.plus(millisecondsDelay, ChronoUnit.MILLIS).format(formatter);
-
         String delayedTimestamp = String.join(" ", formattedStartTime, "-->", formattedEndTime);
 
         return new Subtitle(number, delayedTimestamp, text);
