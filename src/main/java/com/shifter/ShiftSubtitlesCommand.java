@@ -23,7 +23,7 @@ public class ShiftSubtitlesCommand extends CommandAbstract {
                 .collect(Collectors.toList());
     }
 
-    public Integer parseTimeshift(String timeshift) {
+    public static Integer parseTimeshift(String timeshift) {
         String numericStr = timeshift.replaceAll("[^0-9.]", "");
         double resultDouble = Double.parseDouble(numericStr) * NUMBER_OF_MILISECONDS_IN_SECOND;
         return (int) resultDouble;
