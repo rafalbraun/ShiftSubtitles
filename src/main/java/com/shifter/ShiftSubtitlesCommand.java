@@ -3,6 +3,8 @@ package com.shifter;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.shifter.Constants.NUMBER_OF_MILISECONDS_IN_SECOND;
+
 public class ShiftSubtitlesCommand extends CommandAbstract {
     private final Integer timeshift;
     private final List<Subtitle> subtitleList;
@@ -23,7 +25,7 @@ public class ShiftSubtitlesCommand extends CommandAbstract {
 
     public Integer parseTimeshift(String timeshift) {
         String numericStr = timeshift.replaceAll("[^0-9.]", "");
-        double resultDouble = Double.parseDouble(numericStr) * 1000;
+        double resultDouble = Double.parseDouble(numericStr) * NUMBER_OF_MILISECONDS_IN_SECOND;
         return (int) resultDouble;
     }
 

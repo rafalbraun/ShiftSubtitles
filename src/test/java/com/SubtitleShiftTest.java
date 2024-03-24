@@ -11,9 +11,9 @@ public class SubtitleShiftTest {
 
     public static void main(String[] args) {
 
-        File inputFile = new File("src/test/resources/The.Flash.2023.1080p.WEB-DL.H.264-RiGHTNOW.srt");
+        File inputFile = new File("src/test/resources/input.srt");
         File outputFile = new File("src/test/resources/output.srt");
-        String timeshift = "+4.000";
+        String timeshift = "+10.000";
 
         try (
             PrintWriter writer = new PrintWriter(new FileWriter(outputFile));
@@ -32,4 +32,5 @@ public class SubtitleShiftTest {
             e.printStackTrace();
         }
     }
+
 }

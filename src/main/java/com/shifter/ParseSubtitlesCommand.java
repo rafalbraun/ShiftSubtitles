@@ -6,10 +6,10 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ParseSubtitlesCommand extends CommandAbstract {
+import static com.shifter.Constants.DOUBLE_NEWLINE;
+import static com.shifter.Constants.NEWLINE;
 
-    private static final String DOUBLE_NEWLINE = "\n\n";
-    private static final String NEWLINE = "\n";
+public class ParseSubtitlesCommand extends CommandAbstract {
 
     private final InputStream inputStream;
     private final List<Subtitle> subtitleList = new LinkedList<>();
