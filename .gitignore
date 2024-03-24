@@ -11,6 +11,3 @@ target/
 *.iws
 *.iml
 *.ipr
-
-### Others
-*.md
