@@ -2,6 +2,7 @@ package com.controllers;
 
 import com.shifter.ParseSubtitlesCommand;
 import com.shifter.PrintSubtitlesCommand;
+import com.shifter.SanitizeSubtitlesCommand;
 import com.shifter.ShiftSubtitlesCommand;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,6 @@ public class ResyncController {
     @PostMapping(value = "/resync", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<byte[]> handleFileUpload(@RequestParam("file") MultipartFile file,
                                                    @RequestParam("timeshift") String timeshift) throws IOException {
-
         // Check if file is empty
         if (file.isEmpty()) {
             return ResponseEntity.badRequest().body("Please select a file to upload".getBytes());
@@ -30,17 +30,16 @@ public class ResyncController {
             return ResponseEntity.badRequest().body("Please upload an SRT file".getBytes());
         }
 
-        //byte[] fileContent = file.getBytes();
-
         ParseSubtitlesCommand parseJob = new ParseSubtitlesCommand(file.getInputStream());
         parseJob.execute();
         ShiftSubtitlesCommand shiftJob = new ShiftSubtitlesCommand(parseJob.getSubtitleList(), timeshift);
         shiftJob.execute();
-        PrintSubtitlesCommand printJob = new PrintSubtitlesCommand(shiftJob.getSubtitleList());
+        SanitizeSubtitlesCommand sanitizeJob = new SanitizeSubtitlesCommand(shiftJob.getSubtitleList());
+        sanitizeJob.execute();
+        PrintSubtitlesCommand printJob = new PrintSubtitlesCommand(sanitizeJob.getSanitizedList());
         printJob.execute();
 
         byte[] fileContent = printJob.getFormattedSubtitles().getBytes();
-
         return ResponseEntity.ok()
                 .contentType(MediaType.APPLICATION_OCTET_STREAM)
                 .header("Content-Disposition", "attachment; filename=\"" + file.getOriginalFilename() + "\"")
